@@ -10,4 +10,4 @@ python train_sentence_transformer.py \
     --valid_steps 50 \
     --logging_steps 10 \
     --num_train_epochs 10 \
-    --device "cuda:1"
+    --device "cuda:0"

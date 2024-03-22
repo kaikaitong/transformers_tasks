@@ -280,6 +280,7 @@ class SentenceTransformer(nn.Module):
         Returns:
             torch.tensor: (batch, 2)
         """
+        # Average Pooling
         query_embedding = self.encoder(
             input_ids=query_input_ids,
             token_type_ids=query_token_type_ids,
@@ -292,6 +293,7 @@ class SentenceTransformer(nn.Module):
         query_sum_mask = torch.sum(query_attention_mask, dim=1)                 # (batch, 1)
         query_mean = query_sum_embedding / query_sum_mask                       # (batch, hidden_size)
 
+        # Average Pooling
         doc_embedding = self.encoder(
             input_ids=doc_input_ids,
             token_type_ids=doc_token_type_ids,
